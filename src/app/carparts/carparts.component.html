@@ -13,7 +13,7 @@
             <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
             <p *ngIf="carPart.inStock === 0">Out of Stock</p>
           </td>
-          <td class="price">{{carPart.price | currency:'KRW':true:'4.2-2'}}</td>
+          <td class="price">{{carPart.price | currency:'USD':true}}</td>
           <td>
             <div class="select-quantity">
               {{carPart.quantity}}
