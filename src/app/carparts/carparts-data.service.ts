@@ -1,17 +1,19 @@
 import {Injectable} from '@angular/core';
-import {CARPARTS} from './mocks';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn : 'root'
 })
 export class CarpartsDataService {
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     console.log('CarpartsDataService consturctor called..');
   }
 
-  getCarParts() {
-    return CARPARTS;
+  getCarParts(): Observable<any> {
+    return this.httpClient.get('assets/car-part.json',
+      {responseType: 'json'});
   }
 
 }

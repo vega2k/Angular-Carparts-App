@@ -18,11 +18,16 @@ export class CarpartsComponent implements OnInit {
 
   ngOnInit() {
     console.log('CarpartsComponent ngOnInit called..');
-    this.carParts = this.carpartsDataService.getCarParts();
+    //this.carParts = this.carpartsDataService.getCarParts();
+    this.carpartsDataService.getCarParts()
+      .subscribe(resData =>
+        this.carParts = resData['data']);
   }
 
   totalCarParts() {
-    return this.carParts.reduce((prev, curr) => prev + curr.inStock, 0);
+    if(Array.isArray(this.carParts)) {
+      return this.carParts.reduce((prev, curr) => prev + curr.inStock, 0);
+    }
   }
 
   upQuantity(carPart) {
