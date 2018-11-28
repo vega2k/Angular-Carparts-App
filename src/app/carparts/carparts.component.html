@@ -24,8 +24,9 @@
             <div class="select-quantity">
               {{carPart.quantity}}
               <button class="decrease" (click)="downQuantity(carPart)">-</button>
-              <input class="number" type="number" [value]="carPart.quantity"
-                     (keyup)="keyupQuantity(carPart,$event)" >
+              <!--<input class="number" type="number" [value]="carPart.quantity"-->
+                     <!--(keyup)="keyupQuantity(carPart,$event)" >-->
+              <input class="number" type="number" [(ngModel)]="carPart.quantity">
               <button class="increase" (click)="upQuantity(carPart,$event)" >+</button>
             </div>
           </td>

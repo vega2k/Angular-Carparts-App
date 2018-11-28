@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CarPart} from './car-part';
 import {CARPARTS} from './mocks';
+import {CarpartsDataService} from './carparts-data.service';
 
 @Component({
   selector: 'app-carparts',
@@ -11,13 +12,13 @@ export class CarpartsComponent implements OnInit {
 
   carParts: CarPart[];
 
-  constructor() {
+  constructor(private carpartsDataService: CarpartsDataService) {
     console.log('CarpartsComponent constructor called..');
   }
 
   ngOnInit() {
     console.log('CarpartsComponent ngOnInit called..');
-    this.carParts = CARPARTS;
+    this.carParts = this.carpartsDataService.getCarParts();
   }
 
   totalCarParts() {
