@@ -7,12 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CarpartsComponent } from './carparts/carparts.component';
 import { AboutComponent } from './about/about.component';
+import {RacesComponent} from './car-race/races.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarpartsComponent,
-    AboutComponent
+    AboutComponent,
+    RacesComponent
   ],
   imports: [
     BrowserModule,
