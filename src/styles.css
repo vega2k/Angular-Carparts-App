@@ -26,7 +26,6 @@ h3 {
 
 header h1 {
   color: #66d9f7;
-  padding: 100px;
 }
 header h2 {
   color: #009900;
@@ -49,6 +48,6 @@ li:last-child {
 
 .container {
   max-width: 900px;
-  margin:30px auto;
+  margin:20px auto;
 }
 

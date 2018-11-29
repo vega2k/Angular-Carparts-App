@@ -18,7 +18,7 @@ export class CarpartsDataService {
   }
 
   getCarPartsPromise() : Promise<CarPart[]> {
-    return this.httpClient.get('assets/car-part.json')
+    return this.httpClient.get('http://127.0.0.1:52274/data.json')
                           .toPromise()
                           .then(res => res['data'])
                           .catch(err => console.log('Error 발생',err));
