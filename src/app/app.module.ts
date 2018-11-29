@@ -6,11 +6,13 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CarpartsComponent } from './carparts/carparts.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarpartsComponent
+    CarpartsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

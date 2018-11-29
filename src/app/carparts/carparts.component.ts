@@ -10,6 +10,7 @@ import {throwError} from 'rxjs';
   styleUrls: ['./carparts.component.css']
 })
 export class CarpartsComponent implements OnInit {
+  title = 'Ultra Racing';
 
   carParts: CarPart[];
 

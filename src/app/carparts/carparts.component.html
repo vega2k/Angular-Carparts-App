@@ -1,37 +1,42 @@
-<h3>There are {{totalCarParts()}} total parts in stock</h3>
-<ul>
-  <!--
-     css class binding
-     [class.featured]="carPart.featured"
-     [ngClass]="{'featured':carPart.featured}"
-  -->
-  <li class="card" *ngFor="let carPart of carParts"
-      [ngClass]="{'featured': carPart.featured}" >
-    <div class="panel-body">
-      <div class="photo">
-        <img [src]="carPart.image" [alt]="carPart.description">
+<div class="container">
+  <header class="container">
+    <h1>{{title | titlecase}}</h1>
+    <h3>There are {{totalCarParts()}} total parts in stock</h3>
+  </header>
+  <ul>
+    <!--
+       css class binding
+       [class.featured]="carPart.featured"
+       [ngClass]="{'featured':carPart.featured}"
+    -->
+    <li class="card" *ngFor="let carPart of carParts"
+        [ngClass]="{'featured': carPart.featured}" >
+      <div class="panel-body">
+        <div class="photo">
+          <img [src]="carPart.image" [alt]="carPart.description">
+        </div>
+        <table class="product-info">
+          <tr>
+            <td>
+              <h2>{{carPart.name | uppercase}}</h2>
+              <p class="description">{{carPart.description}}</p>
+              <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
+              <p *ngIf="carPart.inStock === 0">Out of Stock</p>
+            </td>
+            <td class="price">{{carPart.price | currency:'USD':true}}</td>
+            <td>
+              <div class="select-quantity">
+                {{carPart.quantity}}
+                <button class="decrease" (click)="downQuantity(carPart)">-</button>
+                <!--<input class="number" type="number" [value]="carPart.quantity"-->
+                       <!--(keyup)="keyupQuantity(carPart,$event)" >-->
+                <input class="number" type="number" [(ngModel)]="carPart.quantity">
+                <button class="increase" (click)="upQuantity(carPart,$event)" >+</button>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
-      <table class="product-info">
-        <tr>
-          <td>
-            <h2>{{carPart.name | uppercase}}</h2>
-            <p class="description">{{carPart.description}}</p>
-            <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
-            <p *ngIf="carPart.inStock === 0">Out of Stock</p>
-          </td>
-          <td class="price">{{carPart.price | currency:'USD':true}}</td>
-          <td>
-            <div class="select-quantity">
-              {{carPart.quantity}}
-              <button class="decrease" (click)="downQuantity(carPart)">-</button>
-              <!--<input class="number" type="number" [value]="carPart.quantity"-->
-                     <!--(keyup)="keyupQuantity(carPart,$event)" >-->
-              <input class="number" type="number" [(ngModel)]="carPart.quantity">
-              <button class="increase" (click)="upQuantity(carPart,$event)" >+</button>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>
