@@ -17,11 +17,4 @@ export class CarpartsDataService {
       {responseType: 'json'});
   }
 
-  getCarPartsPromise(): Promise<CarPart[]> {
-      return this.httpClient.get('assets/car-part.json')
-          .toPromise()
-          .then(res => res['data'])
-          .catch(resError => console.log(resError));
-  }
-
 }

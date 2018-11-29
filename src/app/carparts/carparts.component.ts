@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {CarPart} from './car-part';
-import {CARPARTS} from './mocks';
 import {CarpartsDataService} from './carparts-data.service';
 
 @Component({
@@ -19,12 +18,9 @@ export class CarpartsComponent implements OnInit {
   ngOnInit() {
     console.log('CarpartsComponent ngOnInit called..');
     //this.carParts = this.carpartsDataService.getCarParts();
-    // this.carpartsDataService.getCarParts()
-    //   .subscribe(resData =>
-    //     this.carParts = resData['data']);
-
-    //Promise 를 사용
-    this.carpartsDataService.getCarPartsPromise().then(resData => this.carParts = resData);
+    this.carpartsDataService.getCarParts()
+      .subscribe(resData =>
+        this.carParts = resData['data']);
   }
 
   totalCarParts() {
