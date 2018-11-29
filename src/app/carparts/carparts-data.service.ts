@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CarPart} from './car-part';
 
 @Injectable({
   providedIn : 'root'
@@ -14,6 +15,13 @@ export class CarpartsDataService {
   getCarParts(): Observable<any> {
     return this.httpClient.get('assets/car-part.json',
       {responseType: 'json'});
+  }
+
+  getCarPartsPromise(): Promise<CarPart[]> {
+      return this.httpClient.get('assets/car-part.json')
+          .toPromise()
+          .then(res => res['data'])
+          .catch(resError => console.log(resError));
   }
 
 }
