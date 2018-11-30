@@ -24,6 +24,5 @@ export class CarPartTemplatedrivenFormComponent {
 
   goBack(): void {
     // this.location.back();
-    //  this.router.navigate(['/carpart']);
   }
 }
