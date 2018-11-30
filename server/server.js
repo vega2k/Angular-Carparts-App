@@ -2,6 +2,7 @@
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var items = {
     "data" : [
@@ -41,6 +42,7 @@ var items = {
 // 웹 서버를 생성합니다.
 var app = express();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies

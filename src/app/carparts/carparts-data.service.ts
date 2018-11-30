@@ -1,7 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CarPart} from './car-part';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+}
 
 @Injectable(/*{
   providedIn : 'root'
@@ -24,4 +28,8 @@ export class CarpartsDataService {
                           .catch(err => console.log('Error 발생',err));
   }
 
+  addCarPart(carPart: CarPart): Observable<CarPart> {
+    carPart.id = Number(carPart.id);
+    return this.httpClient.post<CarPart>('http://127.0.0.1:52274/products', carPart, httpOptions);
+  }
 }
