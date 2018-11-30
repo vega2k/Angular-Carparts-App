@@ -3,9 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CarPart} from './car-part';
 
-@Injectable({
+@Injectable(/*{
   providedIn : 'root'
-})
+}*/)
 export class CarpartsDataService {
 
   constructor(private httpClient: HttpClient) {
