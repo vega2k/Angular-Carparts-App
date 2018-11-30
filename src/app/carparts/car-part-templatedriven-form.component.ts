@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {Location} from '@angular/common';
+import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 import {CarPart} from './car-part';
 import {CarpartsDataService} from './carparts-data.service';
@@ -10,16 +11,19 @@ import {CarpartsDataService} from './carparts-data.service';
 })
 export class CarPartTemplatedrivenFormComponent {
 
-  constructor(private carpartDataSvc: CarpartsDataService,
-              private location: Location) { }
+  constructor(private carpartsDataService: CarpartsDataService, private router: Router, private location: Location) { }
 
   onSubmit(form) {
     const formData = form.value as CarPart;
     // console.log(formData);
-    this.carpartDataSvc.addCarPart(formData).subscribe(() => this.goBack());
+    this.carpartsDataService.addCarPart(formData)
+      .subscribe((res) => console.log(res));
+
+    this.router.navigate(['/carpart']);
   }
 
-  goBack() {
-    this.location.back();
+  goBack(): void {
+    // this.location.back();
+    //  this.router.navigate(['/carpart']);
   }
 }
